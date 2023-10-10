@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "dog.h"
+#include "dog.h" /* Make sure dog.h defines the struct dog */
 
 /**
 * print_dog - Display details of a dog structure
