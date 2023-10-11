@@ -1,17 +1,23 @@
 #include "function_pointers.h"
-#include <stdio.h>
 
 /**
-* print_name - Prints a name using a function pointer.
-* @name: The name to print.
-* @f: A function pointer to the printing function.
+* find_index - the index of an element in an integer array meeting a condition.
+* @arr: Pointer to an integer array.
+* @size: Number of elements in the array.
+* @condition: Pointer to a user-defined condition  function.
 *
-* Return: Nothing
-**/
-void print_name(char *name, void (*f)(char *))
+* Return: Index of the first element meeting the condition, or -1 if no match is found.
+*/
+int find_index(int *arr, int size, int (*condition)(int))
 {
-if (name == NULL || f == NULL)
-return;
+int i;
 
-f(name);
+if (!arr || size <= 0 || !condition)
+return (-1);
+
+for (i = 0; i < size; i++)
+if (condition(arr[i]))
+return (i);
+
+return (-1);
 }
