@@ -2,7 +2,7 @@
 #include "stdlib.h"
 #include "stddef.h"
 /**
-* list_len - outputs the total number of elements contained in a linked list_t list. 
+* list_len - outputs the number of elements contained in a linked list_t list.
 * @h: A reference to the first node of the linked list.
 * Return: The count of elements in the list.
 */
@@ -15,5 +15,5 @@ for (; h != NULL; h = h->next)
 tally++;
 }
 
-return tally;
+return (tally);
 }
