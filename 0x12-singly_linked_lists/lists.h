@@ -22,6 +22,11 @@ unsigned int len;
 struct list_s *next;
 } list_t;
 
+#define PRINT_BEFORE_MAIN() \
+do { \
+printf("You're beat! and yet, you must allow,\n"); \
+printf("I bore my house upon my back!\n"); \
+} while (0)
 int _putchar(char c);
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
