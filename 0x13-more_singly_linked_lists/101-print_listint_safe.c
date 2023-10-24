@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -15,7 +15,7 @@ size_t count = 0;
 tortoise = head;
 hare = head;
 
-while (tortoise != NULL && hare != NULL)
+while (tortoise && hare)
 {
 printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 count++;
@@ -23,14 +23,26 @@ count++;
 tortoise = tortoise->next;
 hare = hare->next;
 
-if (hare != NULL)
+if (hare)
 hare = hare->next;
 
 if (tortoise == hare)
-{
-printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
 break;
 }
+
+if (tortoise && hare)
+{
+tortoise = head;
+do {
+printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+count++;
+tortoise = tortoise->next;
+hare = hare->next;
+} while (tortoise != hare);
+
+printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
+count += 2;
 }
 
 return (count);
