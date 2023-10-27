@@ -1,17 +1,27 @@
-
+#include <stdio.h>
+#include "main.h"
 /**
-* get_bit - Returns the value of a bit at a given index.
-* @n: The number from which to get the bit.
-* @index: The index (starting from 0) of the bit to get.
-*
-* Return: The value of the bit at the specified index, or -1 if an error occurs.
+* print_binary - Prints the binary representation of an unsigned long int.
+* @n: The number to be converted and printed in binary.
 */
-int get_bit(unsigned long int n, unsigned int index)
+void print_binary(unsigned long int n)
 {
-if (index >= (sizeof(unsigned long int) * 8))
+int bit_count = sizeof(n) * 8;
+int shift = 0;
+if (n == 0)
 {
-return -1; /* Index out of range */
+putchar('0');
+return;
 }
 
-return (int)((n >> index) & 1);
+while (bit_count > 0)
+{
+int bit = (n >> (bit_count - 1)) & 1;
+if (bit || shift)
+{
+putchar(bit + '0');
+shift = 1;
+}
+bit_count--;
+}
 }
